@@ -27,7 +27,7 @@ namespace Testing_Asignment
         {
             double fee;
 
-            if (vehicleType == "standard123")
+            if (vehicleType == "standard")
                 if ((hours >= 1) && (hours <= 3))
                     fee = hours * 4.0;
                 else if (hours >= 4)
