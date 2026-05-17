@@ -1,0 +1,43 @@
+﻿@page
+@model Testing_Asignment.Pages.ParkingFormModel
+@{
+    ViewData["Title"] = "Parking Fee Calculator";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Parking Fee Calculator</title>
+</head>
+<body>
+    <h2>Parking Fee Calculator</h2>
+
+    <form method="post">
+        <div>
+            <label for="hours">Hours Parked:</label>
+            <input type="number" id="hours" name="hours" min="0" value="@Model.Hours" />
+        </div>
+        <br />
+        <div>
+            <label for="vehicleType">Vehicle Type:</label>
+            <select id="vehicleType" name="vehicleType">
+                <option value="standard" selected="@(Model.VehicleType == "standard")">Standard</option>
+                <option value="electric" selected="@(Model.VehicleType == "electric")">Electric</option>
+                <option value="motorcycle" selected="@(Model.VehicleType == "motorcycle")">Motorcycle</option>
+            </select>
+        </div>
+        <br />
+        <div>
+            <button type="submit" id="calculateBtn">Calculate Fee</button>
+        </div>
+    </form>
+
+    @if (Model.FeeResult.HasValue)
+    {
+        <div id="result">
+            <h3>Parking Fee: €@Model.FeeResult.Value.ToString("F2")</h3>
+        </div>
+    }
+</body>
+</html>
